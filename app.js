@@ -1,4 +1,5 @@
 var startTime = new Date().getTime();
+var colorArray = ["red", "blue", "purple", "yellow", "pink", "peachpuff", "peru", "rosybrown", "royalblue", "green"];
 
 function makeShapeAppear() {
     document.getElementById("shape").style.display = "block";
@@ -12,8 +13,8 @@ function appearAfterDelay(){
 }
 
 function moveShape() {
-    document.getElementById("shape").style.top = "" + Math.floor(Math.random() * 400) + "px";
-    document.getElementById("shape").style.left = "" + Math.floor(Math.random() * 400) + "px";
+    document.getElementById("shape").style.top = Math.floor(Math.random() * 520) + "px";
+    document.getElementById("shape").style.left = Math.floor(Math.random() * 1100) + "px";
 }
 
 function changeShape() {
@@ -25,8 +26,21 @@ function changeShape() {
     }
 }
 
+function shapeSize (){
+    var randomNumberSize = Math.floor((Math.random() * 145) + 65);
+
+    document.getElementById("shape").style.height = randomNumberSize + "px";
+    document.getElementById("shape").style.width = randomNumberSize + "px";
+}
+
+function changeColor() {
+    var randomColor = Math.floor(Math.random() * colorArray.length);
+
+    document.getElementById("shape").style.backgroundColor = colorArray[randomColor];
+}
 
 appearAfterDelay();
+changeColor();
 
 document.getElementById('shape').onclick = function() {
     document.getElementById('shape').style.display = "none";
@@ -35,6 +49,8 @@ document.getElementById('shape').onclick = function() {
     document.getElementById("timeTaken").innerHTML = timeTaken + "s";
     moveShape();
     changeShape();
+    shapeSize();
+    changeColor();
     appearAfterDelay();
 }
 
