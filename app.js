@@ -37,3 +37,5 @@ document.getElementById('shape').onclick = function() {
     changeShape();
     appearAfterDelay();
 }
+
+//Hi is changed stuff
